@@ -1,10 +1,8 @@
 package com.nc.auth.models;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -17,7 +15,9 @@ public class Citizen {
     private String cityId;
     private String nome;
     private String password;
-    private AccessLevel acessLevel;
+    @Enumerated(EnumType.STRING)
+    private AccessLevel accessLevel;
+    @Enumerated(EnumType.STRING)
     private CitizenClass classe;
     private BigDecimal edCoin;
     private Date creatAt;
