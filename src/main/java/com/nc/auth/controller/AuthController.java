@@ -18,28 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/auth")
 public class AuthController {
 
-    private final CitizenRepository citizenRepository;
-
-    public AuthController(CitizenRepository citizenRepository){
-        this.citizenRepository = citizenRepository;
-    }
-
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest request){
-        return null;
-    }
 
-    public ResponseEntity<RegisterCitizenResponse> register (@Valid @RequestBody RegisterRequest request){
-        Citizen newCitizen = new Citizen();
-        newCitizen.setPassword(request.password());
-        newCitizen.setNome(request.nome());
-        newCitizen.setClasse(request.classe());
 
-        citizenRepository.save(newCitizen);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(new RegisterCitizenResponse(newCitizen.getUsername(), newCitizen.getClasse()));
-
-    }
 
 
 
