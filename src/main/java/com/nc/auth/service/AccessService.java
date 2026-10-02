@@ -2,7 +2,9 @@ package com.nc.auth.service;
 
 import com.nc.auth.repository.AccessLogRepository;
 import com.nc.auth.repository.CitizenRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AccessService {
 
     private final CitizenRepository citizenRepository;

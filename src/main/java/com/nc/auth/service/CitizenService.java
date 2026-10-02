@@ -3,7 +3,9 @@ package com.nc.auth.service;
 import com.nc.auth.models.Citizen;
 import com.nc.auth.repository.AccessLogRepository;
 import com.nc.auth.repository.CitizenRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CitizenService {
 
     // injeção de construtor via depdencia
