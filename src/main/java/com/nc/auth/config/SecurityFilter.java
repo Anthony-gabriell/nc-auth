@@ -70,7 +70,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 
         // busca o cidadão no banco de dados usando o repositório
         // orElse null devolve null quando o optional está vazio, ou seja, quando o cidadão não existe
-        UserDetails usuario = citizenRepository.findCitizenByNome(username)
+        UserDetails usuario = citizenRepository.findByUser(username)
                 .orElse(null);
 
         // se não encontrar ou não estiver ativo, aborta a autenticação

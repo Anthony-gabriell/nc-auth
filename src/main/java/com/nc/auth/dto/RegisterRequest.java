@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record RegisterRequest(@NotBlank(message = "Nome não pode ser vazio") String nome,
+                              @NotBlank(message = "Usuário não pode ser vazio") String user,
                               @NotBlank(message = "Senha não pode ser vazia") String password,
                               @NotNull(message = "Classe é obrigatória") CitizenClass classe) {
 }

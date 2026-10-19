@@ -20,12 +20,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final SecurityFilter securityFilter;
-    // Classes de erro comentadas temporariamente para o projeto compilar
-    // private final RestAuthenticationEntryPoint entryPoint;
-    // private final RestAccessDeniedHandler accessDeniedHandler;
+    private final RestAuthenticationEntryPoint entryPoint;
+    private final RestAccessDeniedHandler accessDeniedHandler;
 
-    public SecurityConfig(SecurityFilter securityFilter) {
+    public SecurityConfig(SecurityFilter securityFilter,
+                          RestAuthenticationEntryPoint entryPoint,
+                          RestAccessDeniedHandler accessDeniedHandler) {
         this.securityFilter = securityFilter;
+        this.entryPoint = entryPoint;
+        this.accessDeniedHandler = accessDeniedHandler;
     }
 
     @Bean
@@ -42,12 +45,10 @@ public class SecurityConfig {
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
-                /* bloco de tratamento de erros comentado temporariamente
                 .exceptionHandling(ex -> ex
                         .authenticationEntryPoint(entryPoint)
                         .accessDeniedHandler(accessDeniedHandler)
                 )
-                */
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
