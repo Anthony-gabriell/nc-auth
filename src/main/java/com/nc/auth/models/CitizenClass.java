@@ -7,6 +7,7 @@ public enum CitizenClass {
 
     public final String citizenClass;
 
+    // injeçãao de dependecia via construtor
     CitizenClass(String citizenClass){
         this.citizenClass = citizenClass;
     }
